@@ -1,70 +1,83 @@
-# Getting Started with Create React App
+# Погодное приложение
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+React приложение для просмотра погоды с использованием API OpenWeather, DaDATA и Яндекс.Карт.
 
-## Available Scripts
+## Возможности
 
-In the project directory, you can run:
+- Поиск погоды по городу
+- Автоопределение местоположения
+- Сохранение избранных мест
+- Отображение карты с местоположением
+- Автодополнение при вводе города
 
-### `npm start`
+## Настройка
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 1. Установка зависимостей
+```bash
+npm install
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 2. Настройка API ключей
 
-### `npm test`
+Создайте файл `.env` в корне проекта:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```env
+REACT_APP_OPENWEATHER_API_KEY=ваш_api_key_openweathermap
+REACT_APP_DADATA_API_KEY=ваш_api_key_dadata
+REACT_APP_YANDEX_MAPS_API_KEY=ваш_api_key_yandex_maps
+```
 
-### `npm run build`
+#### Получение API ключей:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. **OpenWeather API**: 
+   - Зарегистрируйтесь на [openweathermap.org](https://openweathermap.org/api)
+   - Получите бесплатный API ключ
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. **DaDATA API**:
+   - Зарегистрируйтесь на [dadata.ru](https://dadata.ru/api/suggest/)
+   - Получите API ключ для подсказок адресов
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. **Яндекс.Карты API**:
+   - Зарегистрируйтесь на [yandex.ru/dev/maps](https://yandex.ru/dev/maps/)
+   - Получите API ключ для карт
 
-### `npm run eject`
+### 3. Обновление API ключа в HTML
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+В файле `public/index.html` замените `ваш_api_key_yandex_maps` на ваш реальный ключ Яндекс.Карт:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```html
+<script src="https://api-maps.yandex.ru/2.1/?apikey=ВАШ_РЕАЛЬНЫЙ_КЛЮЧ&lang=ru_RU" type="text/javascript"></script>
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Запуск
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+npm start
+```
 
-## Learn More
+Приложение будет доступно по адресу [http://localhost:3000](http://localhost:3000)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Структура проекта
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+src/
+├── components/          # React компоненты
+│   ├── App.js          # Главный компонент
+│   ├── CityInput.js    # Ввод города с автодополнением
+│   ├── WeatherDisplay.js # Отображение погоды
+│   ├── MapDisplay.js   # Отображение карты
+│   └── SavedLocations.js # Сохраненные места
+├── services/           # API сервисы
+│   ├── weatherService.js # OpenWeather API
+│   └── locationService.js # Геолокация
+└── styles/            # CSS стили
+```
 
-### Code Splitting
+## Используемые технологии
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- React 19
+- Axios для HTTP запросов
+- React Icons для иконок погоды
+- Яндекс.Карты API
+- OpenWeather API
+- DaDATA API для подсказок

@@ -53,6 +53,9 @@ npm start
 
 Приложение будет доступно по адресу [http://localhost:3000](http://localhost:3000)
 
+<img width="1920" height="922" alt="image" src="https://github.com/user-attachments/assets/be9266e5-110c-4859-a644-d33012f95e40" />
+
+
 ## 📁 Структура проекта
 
 ```
